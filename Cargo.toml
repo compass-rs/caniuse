@@ -1,0 +1,19 @@
+[package]
+
+name = "caniuse"
+version = "0.0.1"
+authors = [ "Marius Seritan <github@seritan.net>" ]
+keywords = ["sass"]
+description = "Integrate the caniuse info with an API similar to Compass ruby"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/compass-rs/caniuse.git"
+homepage = "https://github.com/compass-rs/caniuse"
+
+[lib]
+
+name = "caniuse"
+path = "src/lib.rs"
+
+[dependencies]
+rustc-serialize = "0.2"
