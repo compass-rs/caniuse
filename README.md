@@ -1,8 +1,11 @@
 Caniuse
 =======
 
+
 [Travis](https://travis-ci.org/compass-rs/caniuse) ![Travis build status]
 (https://travis-ci.org/compass-rs/caniuse.svg?branch=master)
+
+Documentation: http://compass-rs.github.io/caniuse/caniuse/index.html
 
 THIS IS WORK IN PROGRESS.
 

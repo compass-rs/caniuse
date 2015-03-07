@@ -8,7 +8,8 @@ description = "Integrate the caniuse info with an API similar to Compass ruby"
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/compass-rs/caniuse.git"
-homepage = "https://github.com/compass-rs/caniuse"
+homepage = "https://github.com/compass-rs/caniuse.git"
+documentation = "http://compass-rs.github.io/caniuse/caniuse/index.html"
 
 [lib]
 
