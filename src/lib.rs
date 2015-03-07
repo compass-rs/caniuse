@@ -1,3 +1,6 @@
+//! Implement the caniuse functionaly from compass
+//! http://compass-style.org/help/documentation/tuning-vendor-prefixes/
+
 extern crate "rustc-serialize" as rustc_serialize;
 
 
@@ -10,65 +13,66 @@ mod agent;
 #[derive(RustcDecodable)]
 #[allow(dead_code)]
 pub struct Link {
-  url:String,
-  title:String
+    url:String,
+    title:String
 }
 
 #[derive(RustcDecodable)]
 #[allow(dead_code)]
 pub struct Feature {
-  title: String,
-  description: String,
-  spec: String,
-  status: String,
-  links: Vec<Link>,
-  categories: Vec<String>,
-  stats: HashMap<String,HashMap<String,String>>,
-  notes: String,
-  notes_by_num: HashMap<String,String>,
-  usage_perc_y: f32,
-  usage_perc_a: f32,
-  ucprefix: bool,
-  parent: String,
-  keywords: String
+    title: String,
+    description: String,
+    spec: String,
+    status: String,
+    links: Vec<Link>,
+    categories: Vec<String>,
+    stats: HashMap<String,HashMap<String,String>>,
+    notes: String,
+    notes_by_num: HashMap<String,String>,
+    usage_perc_y: f32,
+    usage_perc_a: f32,
+    ucprefix: bool,
+    parent: String,
+    keywords: String
 }
 
 #[derive(RustcDecodable)]
 #[allow(dead_code)]
 struct FromJson {
-  agents:HashMap<String,agent::Agent>,
-  statuses: HashMap<String,String>,
-  cats: HashMap<String,Vec<String>>,
-  updated: u64,
-  data: HashMap<String,Feature>
+    agents:HashMap<String,agent::Agent>,
+    statuses: HashMap<String,String>,
+    cats: HashMap<String,Vec<String>>,
+    updated: u64,
+    data: HashMap<String,Feature>
 }
 
 pub struct Caniuse {
-  from_json: FromJson
+    from_json: FromJson
 }
 
+/// Construct a new Caniuse structure based on the hardcoded caniuse.json file.
 impl Caniuse {
-  pub fn new() -> Caniuse {
-    let raw = include_str!("caniuse.json");
-    let from_json = json::decode::<FromJson>(raw).unwrap();
-    let c = Caniuse {from_json:from_json};
-    c
-  }
+    pub fn new() -> Caniuse {
+        let raw = include_str!("caniuse.json");
+        let from_json = json::decode::<FromJson>(raw).unwrap();
+        let c = Caniuse {from_json:from_json};
+        c
+    }
 
-  #[allow(dead_code)]
-  pub fn has_data(&self) -> bool {
-    self.from_json.agents.len() > 1
-  }
+    #[allow(dead_code)]
+    pub fn has_data(&self) -> bool {
+        self.from_json.agents.len() > 1
+    }
 
-  #[allow(dead_code)]
-  pub fn agents(&self) -> &HashMap<String,agent::Agent> {
-    &self.from_json.agents
-  }
+    #[allow(dead_code)]
+    pub fn agents(&self) -> &HashMap<String,agent::Agent> {
+        &self.from_json.agents
+    }
 
-  #[allow(dead_code)]
-  pub fn features(&self) -> &HashMap<String,Feature> {
-    &self.from_json.data
-  }
+    #[allow(dead_code)]
+    pub fn features(&self) -> &HashMap<String,Feature> {
+        &self.from_json.data
+    }
 
 }
 
