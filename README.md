@@ -1,6 +1,9 @@
 Caniuse
 =======
 
+![Travis build status]
+(https://travis-ci.org/compass-rs/caniuse.svg?branch=master)
+
 THIS IS WORK IN PROGRESS.
 
 Integrate the caniuse info with an API similar to Compass ruby.
