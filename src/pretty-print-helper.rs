@@ -7,7 +7,7 @@
 /// This is needed because the json uses "type".
 ///
 
-extern crate "rustc-serialize" as rustc_serialize;
+extern crate rustc_serialize;
 use rustc_serialize::Decodable;
 
 

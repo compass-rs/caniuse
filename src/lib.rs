@@ -1,7 +1,7 @@
 //! Implement the caniuse functionaly from compass
 //! http://compass-style.org/help/documentation/tuning-vendor-prefixes/
 
-extern crate "rustc-serialize" as rustc_serialize;
+extern crate rustc_serialize;
 
 
 use rustc_serialize::json::{self};

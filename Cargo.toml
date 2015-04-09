@@ -17,4 +17,4 @@ name = "caniuse"
 path = "src/lib.rs"
 
 [dependencies]
-rustc-serialize = "0.2"
+rustc-serialize = "0"

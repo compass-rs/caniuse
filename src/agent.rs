@@ -1,5 +1,6 @@
 use rustc_serialize::Decodable;
 use std::collections::HashMap;
+use std::result::Result;
 
 pub struct Agent {
   pub browser: String,
@@ -11,10 +12,10 @@ pub struct Agent {
 
 impl Decodable for Agent {
   fn decode<__D: ::rustc_serialize::Decoder>(decoder: &mut __D)
-  -> ::std::result::Result<Agent, __D::Error> {
+  -> Result<Agent, __D::Error> {
     decoder.read_struct("Agent", 6us,
-    |_d| -> _
-    ::std::result::Result::Ok(Agent{
+    |_d| -> _ {
+    Result::Ok(Agent{
       browser: match _d.read_struct_field("browser", 0us, Decodable::decode)
       {
         Ok(__try_var) => __try_var,
@@ -41,6 +42,6 @@ impl Decodable for Agent {
         Err(__try_var) => return Err(__try_var),
       },
     }
-    ))
+    )})
   }
 }
